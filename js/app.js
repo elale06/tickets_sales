@@ -143,12 +143,18 @@ function actualizarPreview() {
 }
 
 function generarRotacionVip() {
-  const rotacion = (Math.random() * 6 - 3).toFixed(2);
+  const array = new Uint32Array(1);
+  globalThis.crypto.getRandomValues(array);
+  const secureRandom = array[0] / (0xFFFFFFFF + 1);
+  const rotacion = (secureRandom * 6 - 3).toFixed(2);
   return rotacion;
 }
 
 function generarRotacionGeneral() {
-  const rotacion = (Math.random() * 4 - 2).toFixed(2);
+  const array = new Uint32Array(1);
+  globalThis.crypto.getRandomValues(array);
+  const secureRandom = array[0] / (0xFFFFFFFF + 1);
+  const rotacion = (secureRandom * 4 - 2).toFixed(2);
   return rotacion;
 }
 
